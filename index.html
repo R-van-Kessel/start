@@ -5,6 +5,7 @@
 <title>Summon the Dragon</title>
 
 <style>
+/* ===== BASIS ===== */
 body {
     margin: 0;
     background: #0e1621;
@@ -17,47 +18,41 @@ h1 {
     padding: 20px;
 }
 
-/* GRID */
+/* ===== GRID ===== */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr) 
-);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 25px;
     padding: 30px;
     max-width: 1200px;
     margin: auto;
 }
 
-/* GAME CARD */
+/* ===== GAME CARD ===== */
 .game {
     position: relative;
+    aspect-ratio: 1 / 1;      /* vierkant */
     overflow: hidden;
     border-radius: 12px;
     cursor: pointer;
     background: #1b2838;
+    text-decoration: none;
 }
 
-/* IMAGE */
-.game {
-    position: relative;
-    aspect-ratio: 1 / 1;      /* ⬅️ HIER maak je de kaart vierkant */
-    overflow: hidden;
-    border-radius: 12px;
-    background: #66c0f4;
-}
+/* ===== IMAGE ===== */
 .game img {
     width: 100%;
     height: 100%;
-    object-fit: contain;      /* ⬅️ past netjes in het vierkant */
+    object-fit: contain;      /* netjes inpassen */
     transition: transform 0.3s ease;
 }
 
-/* HOVER ZOOM */
+/* ===== HOVER ZOOM ===== */
 .game:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
-/* OVERLAY */
+/* ===== OVERLAY ===== */
 .overlay {
     position: absolute;
     inset: 0;
@@ -65,48 +60,31 @@ h1 {
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     padding: 15px;
 }
 
-.game:hover .overlay {
-    opacity: 1;
-}
-
-/* TITLE */
-.overlay h2 {
-    margin: 0;
-    font-size: 18px;
-}
-
- /* PLAY BUTTON */
+/* ===== PLAY BUTTON ===== */
 .play {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);  /* ⬅️ echt midden */
+    transform: translate(-50%, -50%);
     font-size: 60px;
     color: #66c0f4;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-/* TITLE */
+/* ===== TITLE ===== */
 .title {
     font-size: 16px;
-    margin-top: auto;.title {
-    font-size: 16px;
-    margin-top: auto;
-    color: #ffffff;   /* ⬅️ HIER verander je de titel-kleur */
+    color: #ffffff;
 }
 
-}
-
-/* HOVER EFFECTS */
-.game:hover img {
-    transform: scale(1.05);
-}
-
+/* ===== HOVER EFFECTS ===== */
 .game:hover .overlay {
     opacity: 1;
 }
@@ -114,7 +92,6 @@ h1 {
 .game:hover .play {
     opacity: 1;
 }
-
 </style>
 </head>
 
@@ -125,29 +102,30 @@ h1 {
 <div class="grid">
 
 <a href="https://r-van-kessel.github.io/StD_vado/" class="game">
-    <img src="images/vado.png">
+    <img src="images/vado.png" alt="Vado">
     <div class="overlay">
-    <div class="play">▶</div>
-    <div class="title">(+-x:)</div>
-</div>
-
+        <div class="play">▶</div>
+        <div class="title">(+-x:)</div>
+    </div>
+</a>
 
 <a href="https://r-van-kessel.github.io/StD_lineaire_vergelijkingen_haakjes/" class="game">
-    <img src="images/lin verg.png">
+    <img src="images/lin-verg.png" alt="Lineaire vergelijkingen met haakjes">
     <div class="overlay">
-    <div class="play">▶</div>
-    <div class="title">Lineaire (vergelijkingen)</div>
-</div>
+        <div class="play">▶</div>
+        <div class="title">Lineaire (vergelijkingen)</div>
+    </div>
+</a>
 
 <a href="https://r-van-kessel.github.io/StD_lineaire_vergelijkingen/" class="game">
-    <img src="images/lin verg.png">
+    <img src="images/lin-verg.png" alt="Lineaire vergelijkingen">
     <div class="overlay">
-    <div class="play">▶</div>
-    <div class="title">Lineaire vergelijkigen</div>
-</div>
+        <div class="play">▶</div>
+        <div class="title">Lineaire vergelijkingen</div>
+    </div>
+</a>
 
 </div>
 
 </body>
 </html>
-
