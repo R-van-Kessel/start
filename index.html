@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Klas 2 – Summon the Dragon</title>
+<title>Summon the Dragon – Start</title>
 
 <style>
 /* ===== BASIS ===== */
@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== NAVIGATIE (TABS) ===== */
+/* ===== NAVIGATIE ===== */
 .nav {
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@ body {
 h1 {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 30px 0 10px;
     position: relative;
     z-index: 10;
 }
@@ -49,7 +49,7 @@ h1 {
     cursor: default;
 }
 
-/* ===== DRAGON (OPTIONEEL) ===== */
+/* ===== DRAGON ===== */
 .site-title .dragon {
     position: fixed;
     inset: 0;
@@ -64,78 +64,55 @@ h1 {
 }
 
 .site-title:hover .dragon {
-    opacity: 0.15;
+    opacity: 0.18;
 }
 
-/* ===== GRID ===== */
-.grid {
+/* ===== INTRO TEKST ===== */
+.intro {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #c7d5e0;
+}
+
+/* ===== BLOKKEN ===== */
+.sections {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
-    padding: 30px;
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-/* ===== GAME CARD ===== */
-.game {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer;
+.section {
     background: #1b2838;
-    text-decoration: none;
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* IMAGE */
-.game img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(102,192,244,0.3);
 }
 
-/* HOVER ZOOM */
-.game:hover img {
-    transform: scale(1.05);
-}
-
-/* OVERLAY */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 15px;
-}
-
-/* PLAY BUTTON */
-.play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
+.section h2 {
+    margin-top: 0;
     color: #66c0f4;
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-/* GAME TITLE */
-.title {
-    font-size: 16px;
-    color: white;
+.section a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #66c0f4;
+    text-decoration: none;
+    font-weight: bold;
 }
-
-/* HOVER EFFECTS */
-.game:hover .overlay { opacity: 1; }
-.game:hover .play { opacity: 1; }
 </style>
 </head>
 
@@ -143,48 +120,67 @@ h1 {
 
 <!-- ===== NAVIGATIE ===== -->
 <nav class="nav">
-    <a href="index.html">🏠 Start</a>
+    <a href="index.html" class="active">🏠 Start</a>
     <a href="rekenles.html">➗ Rekenles</a>
     <a href="klas1.html">📘 Klas 1</a>
-    <a href="klas2.html" class="active">📗 Klas 2</a>
+    <a href="klas2.html">📗 Klas 2</a>
     <a href="klas3.html">📙 Klas 3</a>
     <a href="bovenbouw.html">🎓 Bovenbouw</a>
 </nav>
 
 <!-- ===== TITEL ===== -->
 <h1 class="site-title">
-    Klas 2
+    Summon the Dragon
     <img src="images/dragon.png" alt="Dragon" class="dragon">
 </h1>
 
-<!-- ===== GAMES ===== -->
-<div class="grid">
+<!-- ===== INTRO ===== -->
+<section class="intro">
+    <p>
+        Welkom bij <strong>Summon the Dragon</strong> – een verzameling interactieve
+        reken- en wiskundegames voor het voortgezet onderwijs.
+    </p>
+    <p>
+        Kies hierboven je leerjaar of onderwerp.
+        De games zijn bedoeld om spelenderwijs te oefenen,
+        zelfstandig of klassikaal.
+    </p>
+</section>
 
-<a href="https://r-van-kessel.github.io/StD_vado/" class="game">
-    <img src="images/vado.png" alt="Vado">
-    <div class="overlay">
-        <div class="play">▶</div>
-        <div class="title">(+ − x :)</div>
+<!-- ===== SECTIES ===== -->
+<section class="sections">
+
+    <div class="section">
+        <h2>➗ Rekenles</h2>
+        <p>Oefen basisvaardigheden zoals optellen, aftrekken, vermenigvuldigen en delen.</p>
+        <a href="rekenles.html">Ga naar rekenles →</a>
     </div>
-</a>
 
-<a href="https://r-van-kessel.github.io/StD_lineaire_vergelijkingen_haakjes/" class="game">
-    <img src="images/lin-verg.png" alt="Lineaire vergelijkingen">
-    <div class="overlay">
-        <div class="play">▶</div>
-        <div class="title">Lineaire vergelijkingen (haakjes)</div>
+    <div class="section">
+        <h2>📘 Klas 1</h2>
+        <p>Games gericht op basisvaardigheden en kennismaking met algebra.</p>
+        <a href="klas1.html">Ga naar klas 1 →</a>
     </div>
-</a>
 
-<a href="https://r-van-kessel.github.io/StD_lineaire_vergelijkingen/" class="game">
-    <img src="images/lin-verg.png" alt="Lineaire vergelijkingen">
-    <div class="overlay">
-        <div class="play">▶</div>
-        <div class="title">Lineaire vergelijkingen</div>
+    <div class="section">
+        <h2>📗 Klas 2</h2>
+        <p>Lineaire vergelijkingen, haakjes en logisch redeneren.</p>
+        <a href="klas2.html">Ga naar klas 2 →</a>
     </div>
-</a>
 
-</div>
+    <div class="section">
+        <h2>📙 Klas 3</h2>
+        <p>Uitbreiding van algebra, formules en verbanden.</p>
+        <a href="klas3.html">Ga naar klas 3 →</a>
+    </div>
+
+    <div class="section">
+        <h2>🎓 Bovenbouw</h2>
+        <p>Complexere wiskunde en verdieping voor de bovenbouw.</p>
+        <a href="bovenbouw.html">Ga naar bovenbouw →</a>
+    </div>
+
+</section>
 
 </body>
 </html>
