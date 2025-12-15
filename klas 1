@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Klas 2 – Summon the Dragon</title>
+<title>Klas 1 – Summon the Dragon</title>
 
 <style>
 /* ===== BASIS ===== */
@@ -153,7 +153,7 @@ h1 {
 
 <!-- ===== TITEL ===== -->
 <h1 class="site-title">
-    Klas 2
+    Klas 1
     <img src="images/dragon.png" alt="Dragon" class="dragon">
 </h1>
 
