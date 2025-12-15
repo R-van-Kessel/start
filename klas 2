@@ -144,7 +144,7 @@ h1 {
 <!-- ===== NAVIGATIE ===== -->
 <nav class="nav">
     <a href="index.html">🏠 Start</a>
-    <a href="rekenles.html">➗ Rekenles</a>
+    <a href="rekenen.html">➗ Rekenen</a>
     <a href="klas1.html">📘 Klas 1</a>
     <a href="klas2.html" class="active">📗 Klas 2</a>
     <a href="klas3.html">📙 Klas 3</a>
