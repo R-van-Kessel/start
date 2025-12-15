@@ -145,8 +145,8 @@ h1 {
 <nav class="nav">
     <a href="index.html">🏠 Start</a>
     <a href="rekenles.html">➗ Rekenles</a>
-    <a href="klas1.html">📘 Klas 1</a>
-    <a href="klas2.html" class="active">📗 Klas 2</a>
+    <a href="klas1.html" class="active">📘 Klas 1</a>
+    <a href="klas2.html">📗 Klas 2</a>
     <a href="klas3.html">📙 Klas 3</a>
     <a href="bovenbouw.html">🎓 Bovenbouw</a>
 </nav>
