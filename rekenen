@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Klas 2 – Summon the Dragon</title>
+
+<style>
+/* ===== BASIS ===== */
+body {
+    margin: 0;
+    background: #0e1621;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===== NAVIGATIE (TABS) ===== */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: #0b131d;
+}
+
+.nav a {
+    color: #c7d5e0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: #66c0f4;
+    text-shadow: 0 0 10px rgba(102,192,244,0.6);
+}
+
+/* ===== TITEL ===== */
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.site-title {
+    position: relative;
+    cursor: default;
+}
+
+/* ===== DRAGON (OPTIONEEL) ===== */
+.site-title .dragon {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 0.4s ease;
+    filter: drop-shadow(0 0 50px rgba(102,192,244,0.9));
+}
+
+.site-title:hover .dragon {
+    opacity: 0.15;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== GAME CARD ===== */
+.game {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #1b2838;
+    text-decoration: none;
+}
+
+/* IMAGE */
+.game img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* HOVER ZOOM */
+.game:hover img {
+    transform: scale(1.05);
+}
+
+/* OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px;
+}
+
+/* PLAY BUTTON */
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: #66c0f4;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* GAME TITLE */
+.title {
+    font-size: 16px;
+    color: white;
+}
+
+/* HOVER EFFECTS */
+.game:hover .overlay { opacity: 1; }
+.game:hover .play { opacity: 1; }
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVIGATIE ===== -->
+<nav class="nav">
+    <a href="index.html">🏠 Start</a>
+    <a href="rekenles.html">➗ Rekenles</a>
+    <a href="klas1.html">📘 Klas 1</a>
+    <a href="klas2.html" class="active">📗 Klas 2</a>
+    <a href="klas3.html">📙 Klas 3</a>
+    <a href="bovenbouw.html">🎓 Bovenbouw</a>
+</nav>
+
+<!-- ===== TITEL ===== -->
+<h1 class="site-title">
+    Klas 2
+    <img src="images/dragon.png" alt="Dragon" class="dragon">
+</h1>
+
+<!-- ===== GAMES ===== -->
+<div class="grid">
+
+<a href="https://r-van-kessel.github.io/StD_vado/" class="game">
+    <img src="images/vado.png" alt="Vado">
+    <div class="overlay">
+        <div class="play">▶</div>
+        <div class="title">(+ − x :)</div>
+    </div>
+</a>
+
+<a href="https://r-van-kessel.github.io/StD_lineaire_vergelijkingen_haakjes/" class="game">
+    <img src="images/lin-verg.png" alt="Lineaire vergelijkingen">
+    <div class="overlay">
+        <div class="play">▶</div>
+        <div class="title">Lineaire vergelijkingen (haakjes)</div>
+    </div>
+</a>
+
+<a href="https://r-van-kessel.github.io/StD_lineaire_vergelijkingen/" class="game">
+    <img src="images/lin-verg.png" alt="Lineaire vergelijkingen">
+    <div class="overlay">
+        <div class="play">▶</div>
+        <div class="title">Lineaire vergelijkingen</div>
+    </div>
+</a>
+
+</div>
+
+</body>
+</html>
