@@ -9,8 +9,8 @@
 
 body {
     margin: 0;
-    background: #e6edf3;              /* LICHTE ACHTERGROND */
-    color: #1b2838;
+    background: #0e1621;
+    color: white;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
@@ -46,7 +46,7 @@ body.bovenbouw {
     --accent-glow: rgba(231,76,60,0.6);
 }
 
-/* subtiele accent-gloed */
+/* ===== SUBTIELE ACHTERGROND GLOW ===== */
 body::before {
     content: "";
     position: fixed;
@@ -54,7 +54,7 @@ body::before {
     background: radial-gradient(circle at top,
         var(--accent-glow),
         transparent 60%);
-    opacity: 0.15;                    /* iets zichtbaarder */
+    opacity: 0.08;
     pointer-events: none;
     z-index: 0;
 }
@@ -65,13 +65,13 @@ body::before {
     justify-content: center;
     gap: 25px;
     padding: 15px;
-    background: #dce6ef;             /* licht */
+    background: #0b131d;
     z-index: 10;
     position: relative;
 }
 
 .nav a {
-    color: #1b2838;
+    color: #c7d5e0;
     text-decoration: none;
     font-weight: bold;
 }
@@ -130,10 +130,10 @@ h1 {
 .game,
 .card {
     aspect-ratio: 1 / 1;
-    background: #f4f7fa;              /* licht */
-    color: #1b2838;
+    background: #1b2838;
     border-radius: 14px;
     text-decoration: none;
+    color: white;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
