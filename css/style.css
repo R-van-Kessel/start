@@ -190,39 +190,55 @@ h1 {
     text-align: center;
     color: white;
    
+/* ===== INTRO TEKST ===== */
 .intro {
-    max-width: 700px;        /* hoe breed de tekst mag zijn */
-    margin: 30px auto 10px;  /* boven | links/rechts | onder */
-    padding: 0 20px;
-    text-align: center;      /* ⬅️ HIER centreer je de tekst */
-    font-size: 18px;
-    line-height: 1.6;
-    color: inherit;          /* gebruikt body-tekstkleur */
-    position: relative;
-    z-index: 10;
+    max-width: 900px;      /* ⬅️ hoe breed de tekst mag zijn */
+    margin: 40px auto;     /* ⬅️ centreert horizontaal */
+    padding: 0 20px;       /* ⬅️ ruimte links/rechts op kleine schermen */
+    text-align: center;    /* ⬅️ centreert de tekst zelf */
+    font-size: 18px;       /* ⬅️ tekstgrootte */
+    line-height: 1.6;      /* ⬅️ regelafstand */
 }
 
 }
 
-/* ===== STARTPAGINA BLOKKEN ===== */
-.sections {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+/* ===== STAPPEN (STARTPAGINA) ===== */
+.steps {
+    display: flex;                 /* zet de 3 stappen naast elkaar */
+    justify-content: center;       /* centreert alles */
+    align-items: center;
+    gap: 30px;                     /* ruimte tussen stappen & pijlen */
     max-width: 1200px;
-    margin: 80px auto 50px; //blokken 100 px, 40px = veel lager
+    margin: 60px auto;
     padding: 0 20px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1000px) {
-    .sections {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* ===== INDIVIDUELE STAP ===== */
+.step {
+    width: 260px;                  /* grootte van elke stap */
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    .sections {
-        grid-template-columns: repeat(1, 1fr);
-    }
+/* ===== AFBEELDING ===== */
+.step img {
+    width: 100%;
+    aspect-ratio: 1 / 1;           /* vierkant */
+    object-fit: contain;
+    border-radius: 16px;
+    background: #1b2838;
+    padding: 15px;
+}
+
+/* ===== TEKST ===== */
+.step h3 {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #66c0f4;
+}
+
+/* ===== PIJL ===== */
+.arrow {
+    font-size: 48px;
+    color: #66c0f4;
+    opacity: 0.8;
 }
