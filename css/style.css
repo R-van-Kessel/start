@@ -207,14 +207,14 @@ h1 {
     justify-content: center;       /* centreert alles */
     align-items: center;
     gap: 30px;                     /* ruimte tussen stappen & pijlen */
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
 /* ===== INDIVIDUELE STAP ===== */
 .step {
-    width: 360px;                  /* grootte van elke stap */
+    width: 400px;                  /* grootte van elke stap */
     text-align: center;
 }
 
@@ -229,7 +229,7 @@ h1 {
 }
 
 /* ===== TEKST ===== */
-.step h3 {
+.step {
     margin-top: 12px;
     font-size: 14px;
     color: #66c0f4;
