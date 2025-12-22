@@ -13,240 +13,205 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
-
-    position: relative;   /* ⬅️ NIEUW */
-    z-index: 0;            /* ⬅️ basislaag */
+    position: relative;
 }
 
+/* ===== KLEUR VARIANTEN ===== */
+body.start      { --accent:#66c0f4; --accent-glow:rgba(102,192,244,.6); }
+body.rekenles   { --accent:#2ecc71; --accent-glow:rgba(46,204,113,.6); }
+body.klas1      { --accent:#f1c40f; --accent-glow:rgba(241,196,15,.6); }
+body.klas2      { --accent:#66c0f4; --accent-glow:rgba(102,192,244,.6); }
+body.klas3      { --accent:#9b59b6; --accent-glow:rgba(155,89,182,.6); }
+body.bovenbouw  { --accent:#e74c3c; --accent-glow:rgba(231,76,60,.6); }
 
-/* ===== KLEUR VARIANTEN PER PAGINA ===== */
-body.start {
-    --accent: #66c0f4;
-    --accent-glow: rgba(102,192,244,0.6);
-}
-
-body.rekenles {
-    --accent: #2ecc71;
-    --accent-glow: rgba(46,204,113,0.6);
-}
-
-body.klas1 {
-    --accent: #f1c40f;
-    --accent-glow: rgba(241,196,15,0.6);
-}
-
-body.klas2 {
-    --accent: #66c0f4;
-    --accent-glow: rgba(102,192,244,0.6);
-}
-
-body.klas3 {
-    --accent: #9b59b6;
-    --accent-glow: rgba(155,89,182,0.6);
-}
-
-body.bovenbouw {
-    --accent: #e74c3c;
-    --accent-glow: rgba(231,76,60,0.6);
-}
-
-/* ===== SUBTIELE ACHTERGROND GLOW ===== */
+/* ===== SUBTIELE GLOW ===== */
 body::before {
-    content: "";
+    content:"";
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at top,var(--accent-glow),transparent 60%);
+    opacity:.08;
+    pointer-events:none;
+    z-index:0;
+}
+
+/* =========================
+   🐉 DRAAK – ACHTERGRONDLAAG
+   ========================= */
+.dragon-bg {
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at top,
-        var(--accent-glow),
-        transparent 60%);
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* ===== NAVIGATIE ===== */
-.nav {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 15px;
-    background: #0b131d;
-    z-index: 20;
-    position: relative;
-}
-
-.nav a {
-    color: #c7d5e0;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav a:hover,
-.nav a.active {
-    color: var(--accent);
-    text-shadow: 0 0 10px var(--accent-glow);
-}
-
-/* ===== TITEL ===== */
-h1 {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    position: relative;
-    z-index: 20;
-}
-
-.site-title {
-    position: relative;
-    z-index: 20;          /* ⬅️ zorgt dat het boven de draak staan */
-    cursor: default;
-}
-/* ===== INTRO TEKST ===== */
-.intro {
-    max-width: 1200px;      /* ⬅️ hoe breed de tekst mag zijn */
-    margin: 40px auto;     /* ⬅️ centreert horizontaal */
-    padding: 0 20px;       /* ⬅️ ruimte links/rechts op kleine schermen */
-    text-align: center;    /* ⬅️ centreert de tekst zelf */
-    font-size: 16px;       /* ⬅️ tekstgrootte */
-    line-height: 1.5;      /* ⬅️ regelafstand */
-    position: relative;   /* ⬅️ nodig voor z-index */
-    z-index: 20;          /* ⬅️ zorgt dat het boven de draak staan */
-}
-
-/* ===== STAPPEN (STARTPAGINA) ===== */
-.steps {
-    display: flex;                 /* zet de 3 stappen naast elkaar */
-    justify-content: center;       /* centreert alles */
-    align-items: center;
-    gap: 30px;                     /* ruimte tussen stappen & pijlen */
-    max-width: 1300px;
-    margin: 60px auto;
-    padding: 0 20px;
-   position: relative;   /* ⬅️ nodig voor z-index */
-    z-index: 20;          /* ⬅️ zorgt dat steps boven de draak staan */
-}
-
-/* ===== INDIVIDUELE STAP ===== */
-.step {
-    width: 400px;                  /* grootte van elke stap */
-    text-align: center;
-}
-
-/* ===== AFBEELDING ===== */
-.step img {
-    width: 100%;
-    aspect-ratio: 1 / 1;           /* vierkant */
-    object-fit: contain;
-    border-radius: 16px;
-    background: #1b2838;
-    padding: 10px;
-}
-
-/* ===== TEKST ===== */
-.step {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #66c0f4;
-}
-
-/* ===== PIJL ===== */
-.arrow {
-    font-size: 36px;
-    color: #66c0f4;
-    opacity: 0.8;
-}
-
-/* ===== DRAAK ===== */
-.site-title .dragon {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain;
+    background: url("dragon.png") center / contain no-repeat;
     opacity: 0;
     pointer-events: none;
-    z-index: -1; /* ⬅️ expliciet laag */
-    transition: opacity 0.4s ease;
-    filter: drop-shadow(0 0 60px var(--accent-glow));
+    z-index: 1;
+    filter: drop-shadow(0 0 80px var(--accent-glow));
+    transition: opacity .4s ease;
 }
 
-.site-title:hover .dragon {
-    opacity: 0.5;
+/* Hover triggert de draak */
+.site-title:hover ~ .dragon-bg {
+    opacity: 0.35;
 }
 
-/* ===== GRID (GAMES) ===== */
+/* =========================
+   CONTENT LAGEN
+   ========================= */
+.nav,
+h1,
+.site-title,
+.intro,
+.steps,
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 25px;
-    padding: 30px;
-    max-width: 1200px;
-    margin: auto;
     position: relative;
     z-index: 10;
 }
 
-/* ===== GAME / CARD ===== */
+/* ===== NAVIGATIE ===== */
+.nav {
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:15px;
+    background:#0b131d;
+}
+
+.nav a {
+    color:#c7d5e0;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.nav a:hover,
+.nav a.active {
+    color:var(--accent);
+    text-shadow:0 0 10px var(--accent-glow);
+}
+
+/* ===== TITEL ===== */
+h1 {
+    display:flex;
+    justify-content:center;
+    margin:30px 0;
+}
+
+.site-title {
+    cursor: default;
+}
+
+/* ===== INTRO ===== */
+.intro {
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+    text-align:center;
+    font-size:16px;
+    line-height:1.5;
+}
+
+/* ===== STAPPEN ===== */
+.steps {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    max-width:1300px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+.step {
+    width:400px;
+    text-align:center;
+}
+
+.step img {
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:contain;
+    border-radius:16px;
+    background:#1b2838;
+    padding:10px;
+}
+
+.step p {
+    margin-top:12px;
+    font-size:14px;
+    color:var(--accent);
+}
+
+.arrow {
+    font-size:36px;
+    color:var(--accent);
+    opacity:.8;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:25px;
+    padding:30px;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ===== CARDS ===== */
 .game,
 .card {
-    aspect-ratio: 1 / 1;
-    background: #1b2838;
-    border-radius: 14px;
-    text-decoration: none;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio:1/1;
+    background:#1b2838;
+    border-radius:14px;
+    text-decoration:none;
+    color:white;
+    position:relative;
+    overflow:hidden;
+    transition:.3s;
 }
 
 .game:hover,
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px var(--accent-glow);
+    transform:translateY(-5px);
+    box-shadow:0 0 25px var(--accent-glow);
 }
 
-/* ===== IMAGE ===== */
 .game img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transition:.3s;
 }
 
 .game:hover img {
-    transform: scale(1.05);
+    transform:scale(1.05);
 }
 
-/* ===== OVERLAY ===== */
 .overlay,
 .card-inner {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+    opacity:0;
+    transition:.3s;
 }
 
 .game:hover .overlay,
 .card:hover .card-inner {
-    opacity: 1;
+    opacity:1;
 }
 
-/* ===== PLAY BUTTON ===== */
 .play {
-    font-size: 55px;
-    color: var(--accent);
+    font-size:55px;
+    color:var(--accent);
 }
 
-/* ===== TITELS ===== */
 .title,
 .card-title {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center;
-    color: white;
-} 
-
+    margin-top:10px;
+    font-size:14px;
+    text-align:center;
+}
