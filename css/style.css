@@ -103,6 +103,8 @@ h1 {
     text-align: center;    /* ⬅️ centreert de tekst zelf */
     font-size: 16px;       /* ⬅️ tekstgrootte */
     line-height: 1.5;      /* ⬅️ regelafstand */
+   position: relative;   /* ⬅️ nodig voor z-index */
+    z-index: 10;          /* ⬅️ zorgt dat steps boven de draak staan */
 }
 
 /* ===== STAPPEN (STARTPAGINA) ===== */
@@ -114,6 +116,8 @@ h1 {
     max-width: 1300px;
     margin: 60px auto;
     padding: 0 20px;
+   position: relative;   /* ⬅️ nodig voor z-index */
+    z-index: 10;          /* ⬅️ zorgt dat steps boven de draak staan */
 }
 
 /* ===== INDIVIDUELE STAP ===== */
