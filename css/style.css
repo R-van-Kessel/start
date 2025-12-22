@@ -93,6 +93,7 @@ h1 {
 
 .site-title {
     position: relative;
+    z-index: 10;          /* ⬅️ zorgt dat het boven de draak staan */
     cursor: default;
 }
 /* ===== INTRO TEKST ===== */
@@ -103,8 +104,8 @@ h1 {
     text-align: center;    /* ⬅️ centreert de tekst zelf */
     font-size: 16px;       /* ⬅️ tekstgrootte */
     line-height: 1.5;      /* ⬅️ regelafstand */
-   position: relative;   /* ⬅️ nodig voor z-index */
-    z-index: 10;          /* ⬅️ zorgt dat steps boven de draak staan */
+    position: relative;   /* ⬅️ nodig voor z-index */
+    z-index: 10;          /* ⬅️ zorgt dat het boven de draak staan */
 }
 
 /* ===== STAPPEN (STARTPAGINA) ===== */
