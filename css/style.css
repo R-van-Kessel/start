@@ -1,61 +1,82 @@
 /* =========================
-   MASTER STYLE – SUMMON THE DRAGON
+   MASTER STYLE – STABIEL
    ========================= */
 
-/* ===== BASIS ===== */
+/* ===== RESET ===== */
 * {
     box-sizing: border-box;
 }
 
+/* ===== BODY ===== */
 body {
     margin: 0;
     background: #0e1621;
     color: white;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* ===== KLEUR VARIANTEN ===== */
-body.start      { --accent:#66c0f4; --accent-glow:rgba(102,192,244,.6); }
-body.rekenles   { --accent:#2ecc71; --accent-glow:rgba(46,204,113,.6); }
-body.klas1      { --accent:#f1c40f; --accent-glow:rgba(241,196,15,.6); }
-body.klas2      { --accent:#66c0f4; --accent-glow:rgba(102,192,244,.6); }
-body.klas3      { --accent:#9b59b6; --accent-glow:rgba(155,89,182,.6); }
-body.bovenbouw  { --accent:#e74c3c; --accent-glow:rgba(231,76,60,.6); }
+/* ===== KLEUREN PER PAGINA ===== */
+body.start {
+    --accent: #66c0f4;
+    --accent-glow: rgba(102,192,244,0.6);
+}
 
-/* ===== SUBTIELE GLOW ===== */
+body.rekenles {
+    --accent: #2ecc71;
+    --accent-glow: rgba(46,204,113,0.6);
+}
+
+body.klas1 {
+    --accent: #f1c40f;
+    --accent-glow: rgba(241,196,15,0.6);
+}
+
+body.klas2 {
+    --accent: #66c0f4;
+    --accent-glow: rgba(102,192,244,0.6);
+}
+
+body.klas3 {
+    --accent: #9b59b6;
+    --accent-glow: rgba(155,89,182,0.6);
+}
+
+/* ===== SUBTIELE ACHTERGROND GLOW ===== */
 body::before {
-    content:"";
-    position:fixed;
-    inset:0;
-    background:radial-gradient(circle at top,var(--accent-glow),transparent 60%);
-    opacity:.08;
-    pointer-events:none;
-    z-index:0;
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top,
+        var(--accent-glow),
+        transparent 60%);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* =========================
-   🐉 DRAAK – ACHTERGRONDLAAG
+   DRAAK (ALTIJD ACHTERGROND)
    ========================= */
-.dragon-bg {
+.site-title .dragon {
     position: fixed;
     inset: 0;
-    background: url("dragon.png") center / contain no-repeat;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
     opacity: 0;
     pointer-events: none;
     z-index: 1;
-    filter: drop-shadow(0 0 80px var(--accent-glow));
-    transition: opacity .4s ease;
+    transition: opacity 0.4s ease;
+    filter: drop-shadow(0 0 60px var(--accent-glow));
 }
 
-/* Hover triggert de draak */
-.site-title:hover ~ .dragon-bg {
-    opacity: 0.35;
+.site-title:hover .dragon {
+    opacity: 0.25;
 }
 
 /* =========================
-   CONTENT LAGEN
+   ALLE CONTENT ERVOOR
    ========================= */
 .nav,
 h1,
@@ -64,154 +85,103 @@ h1,
 .steps,
 .grid {
     position: relative;
-    z-index: 10;
+    z-index: 2;
 }
 
 /* ===== NAVIGATIE ===== */
 .nav {
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    padding:15px;
-    background:#0b131d;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: #0b131d;
 }
 
 .nav a {
-    color:#c7d5e0;
-    text-decoration:none;
-    font-weight:bold;
+    color: #c7d5e0;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .nav a:hover,
 .nav a.active {
-    color:var(--accent);
-    text-shadow:0 0 10px var(--accent-glow);
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent-glow);
 }
 
 /* ===== TITEL ===== */
 h1 {
-    display:flex;
-    justify-content:center;
-    margin:30px 0;
-}
-
-.site-title {
-    cursor: default;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
 }
 
 /* ===== INTRO ===== */
 .intro {
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 20px;
-    text-align:center;
-    font-size:16px;
-    line-height:1.5;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-/* ===== STAPPEN ===== */
+/* ===== STAPPEN (STARTPAGINA) ===== */
 .steps {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:30px;
-    max-width:1300px;
-    margin:60px auto;
-    padding:0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 1300px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
 .step {
-    width:400px;
-    text-align:center;
+    width: 350px;
+    text-align: center;
 }
 
 .step img {
-    width:100%;
-    aspect-ratio:1/1;
-    object-fit:contain;
-    border-radius:16px;
-    background:#1b2838;
-    padding:10px;
-}
-
-.step p {
-    margin-top:12px;
-    font-size:14px;
-    color:var(--accent);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #1b2838;
+    padding: 10px;
 }
 
 .arrow {
-    font-size:36px;
-    color:var(--accent);
-    opacity:.8;
+    font-size: 36px;
+    color: var(--accent);
+    opacity: 0.8;
 }
 
 /* ===== GRID ===== */
 .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-    gap:25px;
-    padding:30px;
-    max-width:1200px;
-    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 /* ===== CARDS ===== */
 .game,
 .card {
-    aspect-ratio:1/1;
-    background:#1b2838;
-    border-radius:14px;
-    text-decoration:none;
-    color:white;
-    position:relative;
-    overflow:hidden;
-    transition:.3s;
+    aspect-ratio: 1 / 1;
+    background: #1b2838;
+    border-radius: 14px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .game:hover,
 .card:hover {
-    transform:translateY(-5px);
-    box-shadow:0 0 25px var(--accent-glow);
-}
-
-.game img {
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    transition:.3s;
-}
-
-.game:hover img {
-    transform:scale(1.05);
-}
-
-.overlay,
-.card-inner {
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
-    opacity:0;
-    transition:.3s;
-}
-
-.game:hover .overlay,
-.card:hover .card-inner {
-    opacity:1;
-}
-
-.play {
-    font-size:55px;
-    color:var(--accent);
-}
-
-.title,
-.card-title {
-    margin-top:10px;
-    font-size:14px;
-    text-align:center;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--accent-glow);
 }
